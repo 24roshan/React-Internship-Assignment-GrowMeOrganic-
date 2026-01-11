@@ -11,6 +11,7 @@ interface Props {
   rowsPerPage: number;
   page: number;
   selectedRows: Artwork[];
+  selectedCount: number;
   onPageChange: (e: any) => void;
   onSelectionChange: (rows: Artwork[]) => void;
   onCustomSelect: (count: number) => void;
@@ -37,6 +38,9 @@ function ArtworkTable(props: Props) {
           <Button label="Select" onClick={applyCustom} />
         </div>
       </OverlayPanel>
+      <p style={{ marginBottom: "10px", fontWeight: 500 }}>
+        Selected Rows: {props.selectedCount}
+      </p>
       <DataTable
         value={props.artworks}
         paginator
